@@ -9,3 +9,35 @@ The system consists of an Air Unit installed on the vehicle and a Ground/Remote 
 - STM32H743RBT6
 - OV5640 Camera
 - RF Module
+
+# Hardware Architecture
+The high-level Air Unit architecture is:
+
+                  ┌─────────────────────┐
+                  │    OV5640 Camera    │
+                  └──────────┬──────────┘
+                             │
+                             │ Video Data
+                             ▼
+                  ┌─────────────────────┐
+                  │   STM32H743RBT6     │
+                  │                     │
+                  │  Video Interface    │
+                  │  Data Management    │
+                  │  Control Logic      │
+                  │  Telemetry          │
+                  └──────────┬──────────┘
+                             │
+                             │ Data / Control
+                             ▼
+                  ┌─────────────────────┐
+                  │      RF Module      │
+                  └──────────┬──────────┘
+                             │
+                        Wireless Link
+                             │
+                             ▼
+                  ┌─────────────────────┐
+                  │   Ground / Remote   │
+                  │       Unit          │
+                  └─────────────────────┘
